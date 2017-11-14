@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   border: 0;
@@ -10,9 +10,6 @@ html,
 body {
   font-family: 'Roboto', sans-serif;  
   font-size: 14px;
-  /* color: #212121; */
-  /* background-color: #f1f3f6; */
-  /* min-width: 980px;  */
 }
 
 a,
@@ -31,4 +28,4 @@ img {
   border: none;
   outline: none;
 }
-
+ */
