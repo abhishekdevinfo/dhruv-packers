@@ -1,34 +1,34 @@
-import React, { Component } from 'react'
-import './App.css'
-import { BrowserRouter, Route, NavLink } from 'react-router-dom'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import MenuItem from 'material-ui/MenuItem'
-import dhrTheme from './dhrTheme'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+import React, { Component } from "react";
+import "./App.css";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import AppBar from "material-ui/AppBar";
+import Drawer from "material-ui/Drawer";
+import MenuItem from "material-ui/MenuItem";
+import dhrTheme from "./dhrTheme";
+import injectTapEventPlugin from "react-tap-event-plugin";
 
-injectTapEventPlugin()
+injectTapEventPlugin();
 
 class App extends Component {
   constructor(props) {
-    super(props)
-    this.state = { open: false }
+    super(props);
+    this.state = { open: false };
 
-    this.handleToggle = this.handleToggle.bind(this)
-    this.handleClose = this.handleClose.bind(this)
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleToggle() {
-    this.setState({ open: !this.state.open })
+    this.setState({ open: !this.state.open });
   }
 
   // handleClose = () => this.setState({ open: !this.state.open });
   // //     No need for bind
 
   handleClose() {
-    this.setState({ open: !this.state.open })
+    this.setState({ open: !this.state.open });
   }
 
   render() {
@@ -79,8 +79,8 @@ class App extends Component {
           </div>
         </MuiThemeProvider>
       </BrowserRouter>
-    )
+    );
   }
 }
 
-export default App
+export default App;
