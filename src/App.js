@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import AppBar from "material-ui/AppBar";
@@ -24,6 +24,9 @@ class App extends Component {
     this.setState({ open: !this.state.open });
   }
 
+  // handleClose = () => this.setState({ open: !this.state.open });
+  // //     No need for bind
+
   handleClose() {
     this.setState({ open: !this.state.open });
   }
@@ -43,18 +46,18 @@ class App extends Component {
               open={this.state.open}
               onRequestChange={open => this.setState({ open })}
             >
-              <Link to="/">
-                <MenuItem onClick={this.handleClose}>Home</MenuItem>
-              </Link>
-              <Link to="/products">
+              <NavLink to="/">
+                <MenuItem primaryText="Home" onClick={this.handleClose}/>
+              </NavLink>
+              <NavLink to="/products">
                 <MenuItem onClick={this.handleClose}>Products</MenuItem>
-              </Link>
-              <Link to="/services">
+              </NavLink>
+              <NavLink to="/services">
                 <MenuItem onClick={this.handleClose}>Services</MenuItem>
-              </Link>
-              <Link to="/aboutUs">
+              </NavLink>
+              <NavLink to="/aboutUs">
                 <MenuItem onClick={this.handleClose}>About Us</MenuItem>
-              </Link>
+              </NavLink>
             </Drawer>
 
             <Route exact path="/" render={() => <h1>Home View</h1>} />
