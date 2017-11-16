@@ -24,8 +24,7 @@ class App extends Component {
         <AppBar
           title="Dhruv Packers"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
-          onLeftIconButtonTouchTap={() =>
-            this.setState({ open: !this.state.open })}
+          onLeftIconButtonTouchTap={() => this.setState({ open: !this.state.open })}
         />
         <Drawer
           docked={false}
