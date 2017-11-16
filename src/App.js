@@ -1,81 +1,39 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import injectTapEventPlugin from "react-tap-event-plugin";
+
+/* Material-UI */
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
-import AppBar from "material-ui/AppBar";
-import Drawer from "material-ui/Drawer";
-import MenuItem from "material-ui/MenuItem";
 import dhrTheme from "./dhrTheme";
-import injectTapEventPlugin from "react-tap-event-plugin";
+
+import SideNav from "./SideNav";
+
+/* Import Views */
+import Home from "./views/Home";
+import Products from "./views/Products";
+import Services from "./views/Services";
+import AboutUS from "./views/AboutUs";
+import NotFound from "./views/NotFound"
 
 injectTapEventPlugin();
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleToggle() {
-    this.setState({ open: !this.state.open });
-  }
-
-  // handleClose = () => this.setState({ open: !this.state.open });
-  // //     No need for bind
-
-  handleClose() {
-    this.setState({ open: !this.state.open });
-  }
-
   render() {
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={getMuiTheme(dhrTheme)}>
           <div className="App">
-            <AppBar
-              title="Dhruv Packers"
-              iconClassNameRight="muidocs-icon-navigation-expand-more"
-              onLeftIconButtonTouchTap={this.handleToggle}
-            />
-            <Drawer
-              docked={false}
-              open={this.state.open}
-              onRequestChange={open => this.setState({ open })}
-            >
-              <NavLink activeClassName="active" exact to="/">
-                <MenuItem onClick={this.handleClose}>Home</MenuItem>
-              </NavLink>
-              <NavLink activeClassName="active" to="/products">
-                <MenuItem onClick={this.handleClose}>Products</MenuItem>
-              </NavLink>
-              <NavLink activeClassName="active" to="/services">
-                <MenuItem onClick={this.handleClose}>Services</MenuItem>
-              </NavLink>
-              <NavLink activeClassName="active" to="/aboutUs">
-                <MenuItem onClick={this.handleClose}>About Us</MenuItem>
-              </NavLink>
-            </Drawer>
+            <SideNav />
 
-            <Route exact path="/" render={() => <h1>Home View</h1>} />
-            <Route
-              exact
-              path="/products"
-              render={() => <h1>Products View</h1>}
-            />
-            <Route
-              exact
-              path="/services"
-              render={() => <h1>Services View</h1>}
-            />
-            <Route
-              exact
-              path="/aboutUs"
-              render={() => <h1>About Us View</h1>}
-            />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/products" component={Products} />
+              <Route path="/services" component={Services} />
+              <Route path="/about-us" component={AboutUS} />
+              <Route component={NotFound}/>
+            </Switch>
           </div>
         </MuiThemeProvider>
       </BrowserRouter>
