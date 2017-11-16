@@ -46,16 +46,16 @@ class App extends Component {
               open={this.state.open}
               onRequestChange={open => this.setState({ open })}
             >
-              <NavLink to="/">
-                <MenuItem primaryText="Home" onClick={this.handleClose} />
+              <NavLink activeClassName="active" exact to="/">
+                <MenuItem onClick={this.handleClose}>Home</MenuItem>
               </NavLink>
-              <NavLink to="/products">
+              <NavLink activeClassName="active" to="/products">
                 <MenuItem onClick={this.handleClose}>Products</MenuItem>
               </NavLink>
-              <NavLink to="/services">
+              <NavLink activeClassName="active" to="/services">
                 <MenuItem onClick={this.handleClose}>Services</MenuItem>
               </NavLink>
-              <NavLink to="/aboutUs">
+              <NavLink activeClassName="active" to="/aboutUs">
                 <MenuItem onClick={this.handleClose}>About Us</MenuItem>
               </NavLink>
             </Drawer>
